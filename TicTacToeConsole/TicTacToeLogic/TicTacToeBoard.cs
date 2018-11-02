@@ -16,13 +16,19 @@ namespace TicTacToeConsole{
         }
         public Boolean setPiece(char c, int row, int col)
         {
-            if (validInput(c, row, col))
+            if (validInput(c, row, col) && positionFree(row, col))
             {
                 _board[row, col] = c;
                 return true;
             }
             else return false;
 
+        }
+        
+        private bool positionFree(int row, int col)
+        {
+            if (_board[row, col] == '\0') return true;
+            return false;
         }
 
         private bool validInput(char c, int row, int col)
