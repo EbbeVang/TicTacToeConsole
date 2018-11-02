@@ -22,12 +22,16 @@ namespace TicTacToeConsole
             {
                 showBoard();
                 Console.WriteLine("play for helvede" + g.CurrentPlayer.Name);
-                Console.WriteLine("row:");
+                Console.Write("row:");
                 int row = Convert.ToInt32(Console.ReadKey().KeyChar.ToString());
-                Console.WriteLine("col:");
+                Console.Write("col:");
                 int col = Convert.ToInt32(Console.ReadKey().KeyChar.ToString());
-                g.playPiece(g.CurrentPlayer.Piece, row, col);
-                g.switchPlayer();
+                if (g.playPiece(g.CurrentPlayer.Piece, row, col))
+                {
+                    g.switchPlayer();
+
+                }
+                Console.Clear();
             }
 
             //TestBoard();
@@ -37,10 +41,11 @@ namespace TicTacToeConsole
         {
             for (int i = 0; i < 3; i++)
             {
+                Console.Write("|");
                 for (int j = 0; j < 3; j++)
                 {
                     Console.Write(g.getBoard()[i,j]);
-                    Console.Write(" ");
+                    Console.Write("|");
                 }
 
                 Console.WriteLine();
