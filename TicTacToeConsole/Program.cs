@@ -9,9 +9,42 @@ namespace TicTacToeConsole
 {
     class Program
     {
+        static TicTacToeGame g;
         static void Main(string[] args)
         {
+            //play game
+            
+            g = new TicTacToeGame();
+            Console.WriteLine("Welcome to TicaTacToe \nplease entr your names");
+            g.setup(Console.ReadLine(), Console.ReadLine());
+
+            while (true)
+            {
+                showBoard();
+                Console.WriteLine("play for helvede" + g.CurrentPlayer.Name);
+                Console.WriteLine("row:");
+                int row = Convert.ToInt32(Console.ReadKey().KeyChar.ToString());
+                Console.WriteLine("col:");
+                int col = Convert.ToInt32(Console.ReadKey().KeyChar.ToString());
+                g.playPiece(g.CurrentPlayer.Piece, row, col);
+                g.switchPlayer();
+            }
+
             //TestBoard();
+        }
+
+        public static void showBoard()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(g.getBoard()[i,j]);
+                    Console.Write(" ");
+                }
+
+                Console.WriteLine();
+            }
         }
 
         private static void TestBoard()

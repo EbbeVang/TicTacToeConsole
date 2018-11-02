@@ -16,13 +16,40 @@ namespace TicTacToeConsole
 
         private Random random = new Random();
         private Player _currentPlayer;
+
+        public Player CurrentPlayer
+        {
+            get { return _currentPlayer; }
+        }
+
         public void setup(String playername1, string playername2)
         {
             setPlayerNames(playername1, playername2);
             randomBegin();
         }
 
+        public void switchPlayer()
+        {
+            if (CurrentPlayer.Equals(_player1))
+            {
+                _currentPlayer = _player2;
+            }
+            else
+            {
+                _currentPlayer = _player1;
+            }
+            
+        }
 
+        public Boolean playPiece(char c, int row, int col)
+        {
+            return _board.setPiece(c, row, col);
+        }
+
+        public char[,] getBoard()
+        {
+            return _board.Board;
+        }
 
         private void randomBegin()
         {
