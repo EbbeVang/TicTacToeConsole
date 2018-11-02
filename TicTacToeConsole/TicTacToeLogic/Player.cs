@@ -6,6 +6,7 @@ namespace TicTacToeConsole
     {
         private String name;
         private int gameWon;
+        private char piece;
 
         public Player(string name)
         {
@@ -26,6 +27,10 @@ namespace TicTacToeConsole
             set { gameWon = value; }
         }
 
-        
+        public char Piece
+        {
+            get { return piece; }
+            set { piece = value; }
+        }
     }
 }

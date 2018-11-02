@@ -22,15 +22,21 @@ namespace TicTacToeConsole
             randomBegin();
         }
 
+
+
         private void randomBegin()
         {
             if (random.NextDouble() < 0.5)
             {
                 _currentPlayer = _player1;
+                _player1.Piece = _board.Pieces[0];
+                _player2.Piece = _board.Pieces[1];
             }
             else
             {
                 _currentPlayer = _player2;
+                _player2.Piece = _board.Pieces[0];
+                _player1.Piece = _board.Pieces[1];
             }
 
         }

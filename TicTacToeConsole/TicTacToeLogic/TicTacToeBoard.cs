@@ -14,6 +14,12 @@ namespace TicTacToeConsole{
         {
             get { return _board; }
         }
+
+        public char[] Pieces
+        {
+            get { return _pieces; }
+        }
+
         public Boolean setPiece(char c, int row, int col)
         {
             if (validInput(c, row, col) && positionFree(row, col))
@@ -33,7 +39,7 @@ namespace TicTacToeConsole{
 
         private bool validInput(char c, int row, int col)
         {
-            if (_pieces.Contains(c))
+            if (Pieces.Contains(c))
             {
                 if (row >= 0 && row < _boardSize)
                 {
